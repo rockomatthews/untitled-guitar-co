@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="700px" viewBox="0 0 375 700" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>card-stages</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M24,0 L351,0 C364.254834,-2.4348735e-15 375,10.745166 375,24 L375,700 L375,700 L0,700 L0,24 C-1.623249e-15,10.745166 10.745166,2.4348735e-15 24,0 Z" id="path-1"></path>
+        <rect id="path-3" x="0" y="73" width="375" height="627"></rect>
+    </defs>
+    <g id="card-stages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="card-full" fill="#FFFFFF" xlink:href="#path-1"></use>
+        <g id="card-top-banner" mask="url(#mask-2)" fill="#000000">
+            <g transform="translate(0.000000, -2.000000)" id="Rectangle">
+                <rect x="0" y="0" width="375" height="75"></rect>
+            </g>
+        </g>
+        <g id="info-popup" opacity="0.279343378" transform="translate(217.000000, 627.000000)">
+            <circle id="Oval" stroke="#000000" cx="6" cy="9" r="6.5"></circle>
+            <text id="i" font-family="AsmathFree-Regular, Asmath Free" font-size="14" font-weight="normal" fill="#000000">
+                <tspan x="4.047" y="13">i</tspan>
+            </text>
+        </g>
+        <mask id="mask-4" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <g id="Rectangle"></g>
+    </g>
+</svg>
