@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="734px" viewBox="0 0 375 734" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>p2-card-full</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M24,0 L351,0 C364.254834,-5.98758718e-15 375,10.745166 375,24 L375,734 L375,734 L0,734 L0,24 C-1.623249e-15,10.745166 10.745166,2.4348735e-15 24,0 Z" id="path-1"></path>
+    </defs>
+    <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="new-user" transform="translate(0.000000, -78.000000)">
+            <g id="card-full" transform="translate(0.000000, 78.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <path stroke="#000000" stroke-width="1" d="M351,0.5 L24,0.5 C17.5106542,0.5 11.6356542,3.13032709 7.38299064,7.38299064 C3.13032709,11.6356542 0.5,17.5106542 0.5,24 L0.5,733.5 L374.5,733.5 L374.5,24 C374.5,17.5106542 371.869673,11.6356542 367.617009,7.38299064 C363.364346,3.13032709 357.489346,0.5 351,0.5 Z"></path>
+                <g id="card-top-banner" stroke-width="1" fill-rule="evenodd" mask="url(#mask-2)">
+                    <g transform="translate(0.000000, -2.000000)">
+                        <rect id="Rectangle" fill="#000000" fill-rule="evenodd" x="0" y="0" width="375" height="75"></rect>
+                        <text id="WORD" fill="none" font-family="Roboto-Medium, Roboto Medium" font-size="20" font-weight="normal">
+                            <tspan x="165.947266" y="45" fill="#FFFFFF">NEW</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
