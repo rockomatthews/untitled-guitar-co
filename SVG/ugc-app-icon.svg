@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="63px" viewBox="0 0 64 63" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>ugc-app-icon copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M49.254597,62.177031 L14.157801,62.177031 C6.795495,62.177031 0.82719,56.247786 0.82719,48.933612 L0.82719,14.066136 C0.82719,6.751962 6.795495,0.822717 14.157801,0.822717 L49.254597,0.822717 C56.61684,0.822717 62.585145,6.751962 62.585145,14.066136 L62.585145,48.933612 C62.585145,56.247786 56.61684,62.177031 49.254597,62.177031 Z" id="path-1"></path>
+    </defs>
+    <g id="wireframe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iOS-Home-screen" transform="translate(-285.000000, -480.000000)">
+            <g id="ugc-app-icon-copy" transform="translate(285.000000, 480.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Shape-3-Copy" stroke="#252424" fill="#000000" xlink:href="#path-1"></use>
+                <g id="logo" mask="url(#mask-2)" fill="#FFFFFF">
+                    <g transform="translate(9.000000, 18.000000)">
+                        <polygon id="r" transform="translate(12.042362, 14.037138) rotate(-270.000000) translate(-12.042362, -14.037138) " points="12.0423619 2.15344332 25.9254372 25.9208322 -1.84071335 25.9208322"></polygon>
+                        <rect id="Rectangle" x="38.028169" y="0.308510638" width="6.97183099" height="28.6914894"></rect>
+                        <rect id="Rectangle-Copy" x="27.5704225" y="0.308510638" width="6.97183099" height="28.6914894"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
