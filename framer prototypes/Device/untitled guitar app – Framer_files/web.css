@@ -1,0 +1,303 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+a {
+    color: var(--text-link);
+    text-decoration: none;
+}
+
+body {
+    --primary: #09f;
+    --background: #fff;
+    --bar-background: #fff;
+    --button-border: rgba(0, 0, 0, 0.1);
+    --button: transparent;
+    --button-cta: var(--primary);
+    --button-cta-text: #fff;
+    --button-height: 30px;
+    --button-icon-size: 30px;
+    --button-on-background: #000;
+    --button-text: #333;
+    --corner-radius: 5px;
+    --circle-border: #eee;
+    --hover-background: #f5f5f5;
+    --list-border: #eee;
+    --menu-active: var(--primary);
+    --menu-active-text: #fff;
+    --menu-background: rgba(255, 255, 255, 0.97);
+    --menu-border: rgba(0, 0, 0, 0.1);
+    --menu-border-width: 0.5px;
+    --menu-highlight: rgba(255, 255, 255, 0.5);
+    --menu-separator: rgba(0, 0, 0, 0.1);
+    --menu-shadow: rgba(0, 0, 0, 0.1);
+    --panel-background: #fbfbfb;
+    --panel-background-secondary: #fdfdfd;
+    --panel-border: #ddd;
+    --panel-border-secondary: #eee;
+    --separator-line: #eee;
+    --text: #333;
+    --text-header: #000;
+    --text-input: #777;
+    --text-link: #181818;
+    --text-menu: var(--text);
+    --text-subtle: rgba(0, 0, 0, 0.4);
+    --text-title: #333;
+    --text-subtitle: #999;
+    --input-background: #fff;
+    --input-border-color: #eee;
+    --input-text-color: #000;
+
+    background-color: var(--background);
+    color: var(--text);
+    font-size: 13px;
+    margin: 0;
+    overscroll-behavior: none;
+    overflow: hidden;
+}
+
+body.dark {
+    --background: #111;
+    --bar-background: #222;
+    --button-border: rgba(255, 255, 255, 0.1);
+    --button-on-background: #fff;
+    --button-text: #fff;
+    --circle-border: #444;
+    --hover-background: #222;
+    --list-border: #242424;
+    --menu-background: rgba(0, 0, 0, 0.93);
+    --menu-border: rgba(0, 0, 0, 0.3);
+    --menu-highlight: rgba(255, 255, 255, 0.3);
+    --menu-separator: rgba(255, 255, 255, 0.1);
+    --menu-shadow: rgba(0, 0, 0, 0.3);
+    --panel-background: #151515;
+    --panel-background-secondary: #181818;
+    --panel-border: #3c3c3c;
+    --panel-border-secondary: #333;
+    --separator-line: #000;
+    --text: #ccc;
+    --text-header: #fff;
+    --text-link: #fff;
+    --text-menu: #fff;
+    --text-subtle: rgba(255, 255, 255, 0.3);
+    --text-title: #fff;
+    --text-subtitle: #aaa;
+    --input-background: #333;
+    --input-border-color: #000;
+    --input-text-color: #fff;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.menu-fisso {
+    --menu-fisso-font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    --menu-fisso-react-font-family: var(--menu-fisso-font-family);
+}
+
+body,
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+button,
+.button {
+    background: var(--button);
+    border: var(--button-border) solid 1px;
+    border-radius: var(--corner-radius);
+    box-sizing: border-box;
+    color: var(--button-text);
+    cursor: pointer;
+    font-size: inherit;
+    height: var(--button-height);
+    line-height: calc(var(--button-height) - 2px);
+    min-width: 60px;
+    outline: 0;
+    padding: 0 12px;
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+}
+
+button.cta,
+.button.cta {
+    background-color: var(--button-cta);
+    color: var(--button-cta-text);
+}
+
+button.icon,
+.button.icon {
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    min-width: auto;
+    padding: 0;
+}
+
+/**
+  * All icon content (borders, background-image, etc...) should be in ::after, in order to support
+  * :active state scale down transition without hurting the click functionality
+  */
+button.icon::after,
+.button.icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    align-items: center;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: auto var(--button-icon-size);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 200ms;
+}
+
+button.icon:active::after,
+.button.icon:active::after {
+    background-color: var(--hover-background);
+    transform: scale(0.94);
+}
+
+button.icon:hover::after,
+.button.icon:hover::after {
+    opacity: 1;
+}
+
+button.icon.on::after,
+.button.icon.on::after {
+    background-color: var(--button-on-background);
+}
+
+h1 {
+    font-size: 16px;
+    letter-spacing: -0.1px;
+    font-weight: 700;
+    color: var(--text-title);
+}
+
+h2 {
+    margin-top: 2em;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+}
+
+img.emoji {
+    height: 1em;
+    width: 1em;
+    margin: 0 0.05em 0 0.1em;
+    vertical-align: -0.1em;
+}
+
+input {
+    outline: none;
+}
+
+#loading {
+    align-items: center;
+    background-color: var(--background);
+    display: flex;
+    flex: 1;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+}
+
+.spinner {
+    animation: 800ms linear infinite spin;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAyVBMVEUAAAC9vsDCw8W9v8G9vsD29/fr7O29vsDm5+jx8fK/wML29vf///+9vsHR0tPm5+jt7u7w8PHr7Ozc3d7n6OnExcfGx8nJyszMzM7V1tjZ2tvf4OG9vsDHyMrp6uvIycu9v8HAwcTPz9HCw8W9vsC9vsDBwsTj5OXj5OXW19i9vsDm5+jw8PHy8vL09fW9vsDFxsjJyszAwsS9vsDU1dbLzM7Y2drb3N3c3d7e3+DHyMrBwsTh4uPR0tPDxcfa293R0tTV1ti9vsAll6RJAAAAQnRSTlMA7+t/MAZHQDYjHxABv6xSQjEgFgzi2M7Emop0cGVLD/ryt7Cfj3dmYWBgWjgsGd/Cv7SvopSSg4B6eHZrQjkyKx1dd0xhAAAA9klEQVR4AYWPeXOCMBBHFxIgCQKC3KCo1Wprtfd98/0/VBPb6TC0Wd+/783+ZqELrQkRoIMujFbiaLTwpESC029reB7919d7u6SgYaE8aUCivW84oEUY0lPQc408pxBqHxCIHGiw4Lxtl5h35ALFglouAAaZTj00OJ7NrvDANI/Q4PlQMDbNFA3ekiQRaHGRpmM0eMqyyxgLRlme4ydu8/n8Az3h+37xiRWv/k1RRlhxUtyVD8yCXwaDflHeP1Zr5sIey3WtfvFeVS+rTWAzFobhNhrFf4omWK03wcS2h8OzLd/1TyhiNvkJQu5amocjznm0i6HDF1RMG1aMA/PYAAAAAElFTkSuQmCC);
+    background-repeat: no-repeat;
+    background-size: 16px;
+    height: 16px;
+    width: 16px;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg) translateZ(0);
+    }
+}
+
+/* 404 | Unsupported Page */
+body.page {
+    display: flex;
+    place-content: center;
+    place-items: center;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+}
+
+.page h1 {
+    font-size: 20px;
+}
+
+.page p {
+    margin: 0;
+    max-width: 260px;
+    color: #999;
+    font-weight: 500;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.page svg,
+.page img {
+    margin-bottom: 10px;
+}
+
+.page .button {
+    margin-top: 20px;
+    background: #09f;
+    color: #fff;
+    border-radius: var(--corner-radius);
+    display: flex;
+    font-size: 13px;
+    letter-spacing: -0.2px;
+    line-height: 1.2;
+    font-weight: 600;
+    padding: 10px 12px;
+    place-content: center;
+    place-items: center;
+    text-align: center;
+    transition: color 0.2s ease;
+    border: none;
+    user-select: none;
+}
+
+/* TODO: Move into MenuFisso with a higher z-index. */
+.menu-fisso-menu-blocker {
+    z-index: 998 !important;
+}
+
+/* TODO: Move into MenuFisso with a higher z-index. */
+.menu-fisso,
+.menu-fisso-react-menu-bar {
+    z-index: 999 !important;
+}
